@@ -12,6 +12,26 @@ import java.util.regex.Pattern;
  */
 public class StringUtils {
 	
+	
+	
+	/**
+	 *  依赖日考工具包工程中添加  toHtml ()，方法，用于将前端<textarea>框
+                 中的传来的字符转成 html 文本，遇到“\n”符时，要用<p></p>将这一段
+                 字符包起来
+	 * @param src
+	 * @return
+	 */
+	public static String toHtml(String src) {
+		
+		String[] strings = src.split("\\\r");
+		StringBuilder sb = new StringBuilder();
+		for (String string : strings) {
+			sb.append("<p>").append(string).append("</p>");
+		}
+		return sb.toString();
+		
+	}
+	
 	/**
 	 *  
 	 * @param str
